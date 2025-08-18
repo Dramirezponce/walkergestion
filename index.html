@@ -1,110 +1,15 @@
 <!doctype html>
-<html lang="es-CL">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  
-  <!-- PWA Meta Tags -->
-  <meta name="application-name" content="WalkerGestion" />
-  <meta name="apple-mobile-web-app-title" content="WalkerGestion" />
-  <meta name="description" content="Sistema de gestión financiera y operativa para locales comerciales. Control de ventas, rendiciones, metas y reportes en tiempo real." />
-  <meta name="keywords" content="gestión, ventas, finanzas, comercial, santiago wanderers, verde, blanco" />
-  
-  <!-- PWA Capability -->
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-touch-fullscreen" content="yes" />
-  
-  <!-- Theme Colors -->
-  <meta name="theme-color" content="#16a34a" />
-  <meta name="msapplication-TileColor" content="#16a34a" />
-  <meta name="msapplication-navbutton-color" content="#16a34a" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  
-  <!-- Manifest -->
-  <link rel="manifest" href="/manifest.json" />
-  
-  <!-- Icons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="/icons/icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="/icons/icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="/icons/icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="/icons/icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="57x57" href="/icons/icon-57x57.png" />
-  
-  <!-- Microsoft Tiles -->
-  <meta name="msapplication-TileImage" content="/icons/icon-144x144.png" />
-  <meta name="msapplication-square70x70logo" content="/icons/icon-70x70.png" />
-  <meta name="msapplication-square150x150logo" content="/icons/icon-150x150.png" />
-  <meta name="msapplication-wide310x150logo" content="/icons/icon-310x150.png" />
-  <meta name="msapplication-square310x310logo" content="/icons/icon-310x310.png" />
-  
-  <!-- Security -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="format-detection" content="address=no" />
-  
-  <!-- Social Media -->
-  <meta property="og:title" content="WalkerGestion - Sistema Integral de Gestión" />
-  <meta property="og:description" content="Sistema de gestión financiera y operativa para locales comerciales. Control de ventas, rendiciones, metas y reportes en tiempo real." />
-  <meta property="og:image" content="/icons/icon-512x512.png" />
-  <meta property="og:url" content="https://walkergestion.cl" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="WalkerGestion" />
-  
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WalkerGestion - Sistema Integral de Gestión" />
-  <meta name="twitter:description" content="Sistema de gestión financiera y operativa para locales comerciales. Control de ventas, rendiciones, metas y reportes en tiempo real." />
-  <meta name="twitter:image" content="/icons/icon-512x512.png" />
-  
-  <title>WalkerGestion - Sistema Integral de Gestión</title>
-</head>
-<body>
-  <div id="root"></div>
-  
-  <!-- PWA Enhancement Script -->
-  <script>
-    // Prevenir zoom en inputs en iOS
-    document.addEventListener('touchstart', function(event) {
-      if (event.touches.length > 1) {
-        event.preventDefault();
-      }
-    }, { passive: false });
-
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', function(event) {
-      const now = (new Date()).getTime();
-      if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-      }
-      lastTouchEnd = now;
-    }, false);
-
-    // Detectar instalación y mostrar mensaje
-    window.addEventListener('beforeinstallprompt', (e) => {
-      console.log('[PWA] Installation available');
-    });
-
-    window.addEventListener('appinstalled', (evt) => {
-      console.log('[PWA] App was installed successfully');
-    });
-
-    // Manejar errores de recursos PWA de forma silenciosa
-    window.addEventListener('error', function(e) {
-      if (e.filename && (e.filename.includes('sw.js') || e.filename.includes('manifest.json'))) {
-        console.log('[PWA] Resource not available in current environment (handled gracefully)');
-        e.preventDefault();
-        return false;
-      }
-    });
-  </script>
-  
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WalkerGestión</title>
+  </head>
+  <body style="margin:0;background:#fff;color:#111">
+    <div id="root" style="min-height:100vh;display:flex;align-items:center;justify-content:center">
+      Cargando…
+    </div>
+    <!-- OJO: ruta relativa -->
+ <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
